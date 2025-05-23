@@ -13,7 +13,11 @@ function nFactorial(n) {
 //Si tienes el número 4, su factorial (se escribe 4!) es:
 //4! = 4 × 3 × 2 × 1 = 24
 
-
+if (n<=1){
+  return n;
+}else{
+  return  n * nFactorial(n-1);
+}
  
 
 
@@ -31,8 +35,11 @@ function nFibonacci(n) {
 //La serie de Fibonacci es una secuencia numérica donde cada número es la suma de los dos anteriores.
 //0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...
 
-
-
+if (n <=1){
+  return n;
+  }else{
+    return nFibonacci(n-1)+ nFibonacci(n-2);
+  }
 }
 
 // Para esta parte no es necesario utilizar recursión.
@@ -47,11 +54,21 @@ class Queue {
     this.count = 0;
   }
 
-  
+  enqueue (value){
+    this.data.push(value);
+    this.count++;
+  }
 
-
-
- 
+  dequeue(){
+    if(this.count === 0){
+      return undefined;
+    }
+      this.count--;
+      return this.data.shift();
+    }
+  size (){
+    return this.count;
+  } 
 }
 
 // No modifiquen nada debajo de esta linea
